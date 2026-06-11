@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornada de Projetos de Pesquisa em Fisioterapia – UPE Petrolina 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep: #1A4731;
+    --green-mid: #2D6A4F;
+    --green-light: #52B788;
+    --green-mint: #A8D5B5;
+    --green-pale: #E8F5EE;
+    --green-bg: #F2F9F5;
+    --white: #FFFFFF;
+    --text: #1A2E22;
+    --text-muted: #4A6355;
+    --border: #C5E0CE;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--green-bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--green-deep);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    box-shadow: 0 2px 12px rgba(26,71,49,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--green-mint);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-mint); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, #3A8A63 100%);
+    color: white;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(168,213,181,0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(82,183,136,0.1) 0%, transparent 40%);
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-mint);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.15;
+    max-width: 820px;
+    margin: 0 auto 1rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-mint);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+
+  /* DATE BADGES */
+  .date-strip {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .date-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(168,213,181,0.35);
+    border-radius: 12px;
+    padding: 0.9rem 1.5rem;
+    text-align: center;
+    min-width: 110px;
+    backdrop-filter: blur(4px);
+  }
+  .date-badge .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--green-mint);
+  }
+  .date-badge .day-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.2rem;
+  }
+  .date-badge .day-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    margin-top: 0.15rem;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(168,213,181,0.2);
+    color: rgba(255,255,255,0.8);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* DIVIDER MOTIF */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    padding: 0 2rem;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .divider-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--green-mid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .divider-icon svg { width: 16px; height: 16px; fill: white; }
+
+  /* SECTIONS */
+  section { padding: 4rem 2rem; }
+  .section-inner { max-width: 960px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--green-deep);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  /* ABOUT */
+  #sobre { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-muted);
+    font-size: 0.97rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .fact-card {
+    background: var(--green-pale);
+    border-left: 3px solid var(--green-light);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+  }
+  .fact-card .fact-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 0.2rem;
+  }
+  .fact-card .fact-value {
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.95rem;
+  }
+
+  /* AREAS */
+  #areas { background: var(--green-pale); }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .area-chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--green-deep);
+    transition: all 0.2s;
+  }
+  .area-chip:hover {
+    background: var(--green-mid);
+    color: white;
+    border-color: var(--green-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45,106,79,0.25);
+  }
+  .area-chip .area-icon { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
+
+  /* PROGRAMAÇÃO */
+  #programacao { background: var(--white); }
+  .day-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0;
+  }
+  .day-tab {
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .day-tab:hover { color: var(--green-mid); }
+  .day-tab.active {
+    color: var(--green-deep);
+    border-bottom-color: var(--green-mid);
+  }
+
+  .day-content { display: none; }
+  .day-content.active { display: block; }
+
+  .session-card {
+    background: var(--green-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .session-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--green-light);
+  }
+  .session-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .session-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--green-deep);
+  }
+  .session-time {
+    background: var(--green-mid);
+    color: white;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .evaluators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .evaluator-badge {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.77rem;
+    color: var(--text-muted);
+  }
+  .evaluator-badge strong { color: var(--green-deep); font-weight: 600; }
+  .session-projects { list-style: none; }
+  .session-projects li {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .session-projects li:last-child { border-bottom: none; }
+  .proj-num {
+    font-weight: 700;
+    color: var(--green-light);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    min-width: 20px;
+    margin-top: 0.05rem;
+  }
+
+  /* COORDENADORES */
+  #coordenacao { background: var(--green-pale); }
+  .coord-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .coord-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    text-align: center;
+  }
+  .coord-avatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 1rem;
+  }
+  .coord-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--green-deep);
+    margin-bottom: 0.25rem;
+  }
+  .coord-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* FORMAT */
+  #formato { background: var(--white); }
+  .format-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  .format-card {
+    background: var(--green-pale);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .format-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+  .format-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--green-deep);
+    margin-bottom: 0.4rem;
+  }
+  .format-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.83rem;
+  }
+  footer strong { color: var(--green-mint); }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .nav-links { display: none; }
+    .day-tabs { overflow-x: auto; }
+    .session-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Jornada Fisioterapia UPE 2026</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#areas">Áreas</a></li>
+    <li><a href="#programacao">Programação</a></li>
+    <li><a href="#coordenacao">Coordenação</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Universidade de Pernambuco · Campus Petrolina</div>
+  <h1>Jornada de Projetos de<br><em>Pesquisa em Fisioterapia</em></h1>
+  <p class="hero-sub">Apresentação pública dos projetos de pesquisa do curso de Fisioterapia — evento acadêmico em formato virtual.</p>
+
+  <div class="date-strip">
+    <div class="date-badge">
+      <span class="day-num">15</span>
+      <div class="day-label">Jun · 2026</div>
+      <div class="day-name">Segunda-feira</div>
+    </div>
+    <div class="date-badge">
+      <span class="day-num">16</span>
+      <div class="day-label">Jun · 2026</div>
+      <div class="day-name">Terça-feira</div>
+    </div>
+    <div class="date-badge">
+      <span class="day-num">17</span>
+      <div class="day-label">Jun · 2026</div>
+      <div class="day-name">Quarta-feira</div>
+    </div>
+  </div>
+
+  <div class="hero-tags">
+    <span class="hero-tag">🖥 Formato Virtual</span>
+    <span class="hero-tag">🎓 Sessões Temáticas</span>
+    <span class="hero-tag">🔬 Debates Científicos</span>
+    <span class="hero-tag">🏥 9 Áreas da Fisioterapia</span>
+  </div>
+</header>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="section-label">O Evento</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Divulgação científica na graduação</h2>
+        <p>A Jornada de Trabalhos de Projetos de Pesquisa em Fisioterapia é um evento acadêmico destinado à apresentação pública dos projetos desenvolvidos por estudantes do curso de Fisioterapia da UPE – Campus Petrolina.</p>
+        <p>O evento visa promover a divulgação científica, estimular a troca de conhecimentos entre estudantes, docentes, pesquisadores e comunidade externa, bem como fortalecer a cultura da pesquisa científica na graduação.</p>
+        <p>Organizado em sessões temáticas que cobrem diferentes áreas da Fisioterapia, cada bloco de apresentações é seguido por debates e discussões científicas, favorecendo o desenvolvimento do pensamento crítico, da comunicação científica e da capacidade de argumentação dos participantes.</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-card">
+          <div class="fact-label">Modalidade</div>
+          <div class="fact-value">Evento Virtual</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Período</div>
+          <div class="fact-value">15 a 17 de junho de 2026</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Instituição</div>
+          <div class="fact-value">Universidade de Pernambuco – Campus Petrolina</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Público-alvo</div>
+          <div class="fact-value">Estudantes, docentes, pesquisadores e comunidade externa</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Total de sessões temáticas</div>
+          <div class="fact-value">9 sessões em 3 dias</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section id="areas">
+  <div class="section-inner">
+    <div class="section-label">Temas Abordados</div>
+    <h2 class="section-title">Áreas da Fisioterapia</h2>
+    <div class="areas-grid">
+      <div class="area-chip"><span class="area-icon">⚽</span>Fisioterapia Esportiva</div>
+      <div class="area-chip"><span class="area-icon">🦴</span>Fisioterapia Musculoesquelética</div>
+      <div class="area-chip"><span class="area-icon">👴</span>Gerontologia</div>
+      <div class="area-chip"><span class="area-icon">🫁</span>Fisioterapia Respiratória</div>
+      <div class="area-chip"><span class="area-icon">❤️</span>Fisioterapia Cardiovascular</div>
+      <div class="area-chip"><span class="area-icon">🩺</span>Fisioterapia em Oncologia</div>
+      <div class="area-chip"><span class="area-icon">🚺</span>Saúde da Mulher</div>
+      <div class="area-chip"><span class="area-icon">👷</span>Saúde do Trabalhador</div>
+      <div class="area-chip"><span class="area-icon">📚</span>Educação em Saúde</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMAÇÃO -->
+<section id="programacao">
+  <div class="section-inner">
+    <div class="section-label">Cronograma</div>
+    <h2 class="section-title">Programação Completa</h2>
+
+    <div class="day-tabs">
+      <button class="day-tab active" onclick="showDay(0)">Dia 1 · 15/06 (Seg)</button>
+      <button class="day-tab" onclick="showDay(1)">Dia 2 · 16/06 (Ter)</button>
+      <button class="day-tab" onclick="showDay(2)">Dia 3 · 17/06 (Qua)</button>
+    </div>
+
+    <!-- DIA 1 -->
+    <div class="day-content active" id="day-0">
+      <!-- Sessão Esportiva -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Fisioterapia Esportiva</div>
+          <span class="session-time">⏰ Início: 18h30</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Jânio Luiz Correia Júnior</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Eugênio Sérgio Bezerra de Oliveira Júnior</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Revisão sistemática dos efeitos do método Pilates em atletas adultos: delineamento e análise crítica da literatura científica</li>
+          <li><span class="proj-num">02</span>Lesões Musculoesqueléticas em Bailarinos Clássicos: Prevalência, Fatores de Risco e Impactos na Saúde do Dançarino</li>
+          <li><span class="proj-num">03</span>Impactos psicossociais da prática de e-sports: qualidade de vida, saúde mental e sono em jogadores de Free Fire</li>
+          <li><span class="proj-num">04</span>Hábitos e padrões posturais de adolescentes praticantes de Free Fire</li>
+          <li><span class="proj-num">05</span>Caracterização da dor musculoesquelética em jogadores de E-sports e seus impactos na qualidade de vida</li>
+          <li><span class="proj-num">06</span>Perfil de atividade física em adolescentes praticantes de esportes eletrônicos: um estudo com jogadores de Free Fire</li>
+        </ul>
+      </div>
+
+      <!-- Sessão Musculoesquelética -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Fisioterapia Musculoesquelética</div>
+          <span class="session-time">⏰ Início: 18h30</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Edivaldo Xavier</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Anna Beatriz de Alencar Bezerra</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Parâmetros utilizados por fisioterapeutas brasileiros na aplicação de agulhamento seco para tratamento de disfunção temporomandibular: Um estudo DELPHI</li>
+          <li><span class="proj-num">02</span>Facilitadores e efeitos adversos do uso de agulhamento seco por fisioterapeutas para tratamento de disfunção temporomandibular: Um estudo DELHI</li>
+        </ul>
+      </div>
+
+      <!-- Sessão Saúde do Trabalhador -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Saúde do Trabalhador</div>
+          <span class="session-time">⏰ Início: 19h00</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Edivaldo Xavier</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Anna Beatriz de Alencar Bezerra</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Relação entre características ocupacionais e de estilo de vida com dor musculoesquelética em enfermeiros</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DIA 2 -->
+    <div class="day-content" id="day-1">
+      <!-- Gerontologia -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Gerontologia</div>
+          <span class="session-time">⏰ Início: 18h30</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Ellen Cristinni Maciel Canuto</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Julia Gomes de Alencar</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Análise da Relação entre Autoeficácia, Equilíbrio Funcional e Aptidão Musculoesquelética em Adultos Idosos Comunitários</li>
+          <li><span class="proj-num">02</span>Associação Entre Capacidade Intrínseca e Sarcopenia em Idosos Comunitários</li>
+          <li><span class="proj-num">03</span>Nível de atividade física e sua relação com a qualidade do sono em indivíduos idosos</li>
+          <li><span class="proj-num">04</span>Associação entre qualidade da atenção primária à saúde e capacidade intrínseca em pessoas idosas comunitárias</li>
+          <li><span class="proj-num">05</span>Associação entre o Nível de Preocupação com Quedas e Indicadores de Participação Social e de Mobilidade nos Espaços de Vida de Pessoas Idosas Residentes no Semiárido Nordestino</li>
+        </ul>
+      </div>
+
+      <!-- Fisioterapia Respiratória -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Fisioterapia Respiratória</div>
+          <span class="session-time">⏰ Início: 19h00</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Lucas Araújo de Souza</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Anna Beatriz de Alencar Bezerra</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Avaliação da excursão diafragmática em crianças com Transtorno do Espectro Autista</li>
+          <li><span class="proj-num">02</span>Presença de distúrbios do sono em crianças e adolescentes com doenças raras no vale do São Francisco: um estudo transversal</li>
+          <li><span class="proj-num">03</span>Avaliação Fisioterapêutica Respiratória e da Qualidade de Vida de Crianças e Adolescentes com Doenças Raras: Estudo Transversal</li>
+        </ul>
+      </div>
+
+      <!-- Fisioterapia Cardiovascular -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Fisioterapia Cardiovascular</div>
+          <span class="session-time">⏰ Início: 19h00</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Lucas Araújo de Souza</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Joice de Souza Batista</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Estudo do controle autonômico cardíaco de profissionais de enfermagem em regimes de trabalho noturno e diurno</li>
+          <li><span class="proj-num">02</span>Estudo da função endotelial e do controle autonômico cardíaco de pacientes submetidos ao treinamento intervalado de alta intensidade</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DIA 3 -->
+    <div class="day-content" id="day-2">
+      <!-- Oncologia -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Fisioterapia em Oncologia</div>
+          <span class="session-time">⏰ Início: 18h00</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Bianca Teixeira Calassa</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Elianelly Mayara da Silva Lima</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Prevalência de sarcopenia e fatores associados em mulheres submetidas ao tratamento do câncer de mama</li>
+          <li><span class="proj-num">02</span>Aspectos Biopsicossociais em Mulheres com Neoplasia de Mama em Hospitais de Referência em Oncologia: Um Estudo Transversal</li>
+          <li><span class="proj-num">03</span>Fatores Associados à Má Qualidade do Sono em Mulheres Submetidas ao Tratamento do Câncer de Mama: Um Estudo Transversal</li>
+          <li><span class="proj-num">04</span>Perfil sociodemográfico e qualidade de vida de crianças e adolescentes com doenças raras do Vale do São Francisco: uma análise baseada na CIF</li>
+          <li><span class="proj-num">05</span>Associação entre fadiga e nível de atividade física em mulheres sobreviventes ao câncer de mama</li>
+        </ul>
+      </div>
+
+      <!-- Educação em Saúde -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Educação em Saúde</div>
+          <span class="session-time">⏰ Início: 19h00</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Robervam de Moura Pedroza</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Herme Felipo</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Análise da percepção da população de Petrolina sobre doar o corpo em vida para estudos</li>
+          <li><span class="proj-num">02</span>Perfil dos doadores de corpos do Programa de Doação de Corpos da Universidade de Pernambuco: do litoral ao sertão pernambucano</li>
+        </ul>
+      </div>
+
+      <!-- Saúde da Mulher -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-name">Saúde da Mulher</div>
+          <span class="session-time">⏰ Início: 19h00</span>
+        </div>
+        <div class="evaluators">
+          <div class="evaluator-badge"><strong>Avaliador 1:</strong> Maira de Menezes Franco</div>
+          <div class="evaluator-badge"><strong>Avaliador 2:</strong> Renê Amaral</div>
+        </div>
+        <ul class="session-projects">
+          <li><span class="proj-num">01</span>Sintomas depressivos e catastrofização da dor em mulheres com endometriose: um estudo transversal</li>
+          <li><span class="proj-num">02</span>Avaliação da funcionalidade e dos níveis de ansiedade em gestantes com diabetes gestacional e gestantes de risco habitual nos segundo e terceiro trimestres gestacionais</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="section-inner">
+    <div class="section-label">Dinâmica do Evento</div>
+    <h2 class="section-title">Como funciona</h2>
+    <div class="format-grid">
+      <div class="format-card">
+        <span class="format-icon">🖥️</span>
+        <h3>Formato Virtual</h3>
+        <p>Sessões realizadas de forma online, garantindo amplo acesso a estudantes e pesquisadores.</p>
+      </div>
+      <div class="format-card">
+        <span class="format-icon">📋</span>
+        <h3>Sessões Temáticas</h3>
+        <p>Cada sessão reúne projetos de uma mesma área, com avaliadores especialistas.</p>
+      </div>
+      <div class="format-card">
+        <span class="format-icon">💬</span>
+        <h3>Debates Científicos</h3>
+        <p>Após as apresentações, debates aprofundam a discussão e estimulam o pensamento crítico.</p>
+      </div>
+      <div class="format-card">
+        <span class="format-icon">🏆</span>
+        <h3>Avaliação Especializada</h3>
+        <p>Cada sessão conta com dois avaliadores docentes especializados na área temática.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COORDENAÇÃO -->
+<section id="coordenacao">
+  <div class="section-inner">
+    <div class="section-label">Organização</div>
+    <h2 class="section-title">Coordenação do Evento</h2>
+    <div class="coord-grid">
+      <div class="coord-card">
+        <div class="coord-avatar">RD</div>
+        <div class="coord-name">Prof. Dr. Ricardo de Freitas Dias</div>
+        <div class="coord-role">Coordenador · Curso de Fisioterapia UPE</div>
+      </div>
+      <div class="coord-card">
+        <div class="coord-avatar">EX</div>
+        <div class="coord-name">Prof. Edivaldo Xavier</div>
+        <div class="coord-role">Coordenador · Curso de Fisioterapia UPE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Jornada de Pesquisa em Fisioterapia · 2026</div>
+  <p>Universidade de Pernambuco – Campus Petrolina</p>
+  <p style="margin-top:0.5rem;">Curso de Fisioterapia · 15 a 17 de junho de 2026</p>
+</footer>
+
+<script>
+  function showDay(index) {
+    document.querySelectorAll('.day-content').forEach((el, i) => {
+      el.classList.toggle('active', i === index);
+    });
+    document.querySelectorAll('.day-tab').forEach((el, i) => {
+      el.classList.toggle('active', i === index);
+    });
+  }
+</script>
+</body>
+</html>
