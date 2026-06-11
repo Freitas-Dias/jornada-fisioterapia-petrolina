@@ -1,6 +1,6 @@
 # Jornada de Projetos de Pesquisa em Fisioterapia – UPE Petrolina
 
-Site oficial da Jornada de Projetos de Pesquisa em Fisioterapia 2026 da Universidade de Pernambuco (UPE) – Campus Petrolina.
+Site da Jornada de Projetos de Pesquisa em Fisioterapia da Universidade de Pernambuco (UPE) – Campus Petrolina.
 
 ## 📖 Sobre o Projeto
 
